@@ -23,7 +23,7 @@ public class Test_Example extends TestBase {
 
 
 
-//    @Test
+//   @Test
 //
 //    public void SearchModule_TC001_VerifyGoogleSearch_FP() throws InterruptedException {
 //
@@ -130,81 +130,32 @@ public class Test_Example extends TestBase {
 //
 //    }
 
-//    @Test
-//
-//    public void TC_ExtendsReports_Test() throws InterruptedException {
-//
-//        WebDriver driver = getDriver();
-//
-//        //navigate to calculator page
-//        driver.get("https://www.calculator.net/calorie-calculator.html");
-//
-//        //Generate Extent Reports
-//        ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
-//        extent.attachReporter(spark);
-//        test = extent.createTest("Validate calculator functionality", "This is to calculate calories");
-//
-//
-//        //clear existing data
-//        driver.findElement(By.xpath("//*[@id=\"content\"]/div[5]/form/table[4]/tbody/tr[3]/td[2]/input[4]")).click();
-//
-//        //Enter Age
-//        driver.findElement(By.id("cage")).sendKeys("20");
-//
-//        //Enter Height
-//        driver.findElement(By.id("cheightmeter")).sendKeys("100");
-//
-//        //Enter Weight
-//        driver.findElement(By.id("ckg")).sendKeys("18");
-//
-//        //press calculate button
-//        driver.findElement(By.name("x")).click();
-//
-//        //Assert Result
-//        String ExpectedTitle = "Result";
-//        WebElement titleElement = driver.findElement(By.xpath("//*[@id=\"content\"]/h2[1]"));
-//        String ActualTitle = titleElement.getText();
-//
-//        //print excepted ad actual result
-//        System.out.println(ExpectedTitle);
-//        System.out.println(ActualTitle);
-//
-//        //compare actual vs expected result
-//        Assert.assertEquals(ActualTitle,ExpectedTitle);
-//
-//
-//        Thread.sleep(10000);
-//        extent.flush();
-//        driver.quit();
-//
-//
-//    }
+    @Test
 
-   @Test
-
-    public void TC_DataDrivenTest() throws InterruptedException, IOException {
-
-        //Create and load property file
-        Properties prop = new Properties();
-        FileInputStream input = new FileInputStream("C:\\Users\\nipun\\Desktop\\QA\\SeliniumProject1\\src\\main\\resources\\DataFiles\\testdata.properties");
-        prop.load(input);
+    public void TC_ExtendsReports_Test() throws InterruptedException {
 
         WebDriver driver = getDriver();
 
         //navigate to calculator page
-        driver.get(prop.getProperty("url"));
+        driver.get("https://www.calculator.net/calorie-calculator.html");
+
+        //Generate Extent Reports
+        ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+        extent.attachReporter(spark);
+        test = extent.createTest("Validate calculator functionality", "This is to calculate calories");
+
 
         //clear existing data
         driver.findElement(By.xpath("//*[@id=\"content\"]/div[5]/form/table[4]/tbody/tr[3]/td[2]/input[4]")).click();
 
         //Enter Age
-        driver.findElement(By.id("cage")).sendKeys(prop.getProperty("age"));
+        driver.findElement(By.id("cage")).sendKeys("20");
 
         //Enter Height
-        driver.findElement(By.id("cheightmeter")).sendKeys(prop.getProperty("height"));
+        driver.findElement(By.id("cheightmeter")).sendKeys("100");
 
         //Enter Weight
-        driver.findElement(By.id("ckg")).sendKeys(prop.getProperty("weight"));
+        driver.findElement(By.id("ckg")).sendKeys("18");
 
         //press calculate button
         driver.findElement(By.name("x")).click();
@@ -223,8 +174,57 @@ public class Test_Example extends TestBase {
 
 
         Thread.sleep(10000);
+        extent.flush();
         driver.quit();
 
 
     }
+
+//   @Test
+//
+//    public void TC_DataDrivenTest() throws InterruptedException, IOException {
+//
+//        //Create and load property file
+//        Properties prop = new Properties();
+//        FileInputStream input = new FileInputStream("C:\\Users\\nipun\\Desktop\\QA\\SeliniumProject1\\src\\main\\resources\\DataFiles\\testdata.properties");
+//        prop.load(input);
+//
+//        WebDriver driver = getDriver();
+//
+//        //navigate to calculator page
+//        driver.get(prop.getProperty("url"));
+//
+//        //clear existing data
+//        driver.findElement(By.xpath("//*[@id=\"content\"]/div[5]/form/table[4]/tbody/tr[3]/td[2]/input[4]")).click();
+//
+//        //Enter Age
+//        driver.findElement(By.id("cage")).sendKeys(prop.getProperty("age"));
+//
+//        //Enter Height
+//        driver.findElement(By.id("cheightmeter")).sendKeys(prop.getProperty("height"));
+//
+//        //Enter Weight
+//        driver.findElement(By.id("ckg")).sendKeys(prop.getProperty("weight"));
+//
+//        //press calculate button
+//        driver.findElement(By.name("x")).click();
+//
+//        //Assert Result
+//        String ExpectedTitle = "Result";
+//        WebElement titleElement = driver.findElement(By.xpath("//*[@id=\"content\"]/h2[1]"));
+//        String ActualTitle = titleElement.getText();
+//
+//        //print excepted ad actual result
+//        System.out.println(ExpectedTitle);
+//        System.out.println(ActualTitle);
+//
+//        //compare actual vs expected result
+//        Assert.assertEquals(ActualTitle,ExpectedTitle);
+//
+//
+//        Thread.sleep(10000);
+//        driver.quit();
+//
+//
+//    }
 }
